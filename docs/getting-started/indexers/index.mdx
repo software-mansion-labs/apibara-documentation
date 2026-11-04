@@ -48,7 +48,7 @@ export default function (runtimeConfig: ApibaraRuntimeConfig) {
 All indexers take the same configuration options.
 
 - **`streamUrl`**<span class="arg-type">`string`</span><br/><span class="arg-description">The URL of the DNA stream to connect to.</span>
-- **`filter`**<span class="arg-type">`TFilter`</span><br/><span class="arg-description">The filter to apply to the DNA stream. See the [Starknet filter reference](/docs/networks/starknet/filter) for the available options.</span>
+- **`filter`**<span class="arg-type">`TFilter`</span><br/><span class="arg-description">The filter to apply to the DNA stream. See the [Starknet filter reference](/docs/starknet/filter) for the available options.</span>
 - **`finality`**<span class="arg-type">`"finalized" | "accepted" | "pending"`</span><br/><span class="arg-description">Receive data with the specified finality. Defaults to `accepted`.</span>
 - **`startingCursor`**<span class="arg-type">`{ orderKey: bigint, uniqueKey?: string }`</span><br/><span class="arg-description">The cursor to start the indexer from. Defaults to the genesis block. The `orderKey` represents the block number, and the `uniqueKey` represents the block hash (optional).</span>
 - **`debug`**<span class="arg-type">`boolean`</span><br/><span class="arg-description">Enable debug mode. This will print debug information to the console.</span>
@@ -63,7 +63,7 @@ The `transform` function is invoked for each block received from the DNA stream.
 
 **Arguments**
 
-- **`block`**<span class="arg-type">`TBlock`</span><br/><span class="arg-description">The block received from the DNA stream. See the [Starknet data reference](/docs/networks/starknet/data).</span>
+- **`block`**<span class="arg-type">`TBlock`</span><br/><span class="arg-description">The block received from the DNA stream. See the [Starknet data reference](/docs/starknet/data).</span>
 - **`cursor`**<span class="arg-type">`{ orderKey: bigint, uniqueKey?: string }`</span><br/><span class="arg-description">The cursor of the block before the received block.</span>
 - **`endCursor`**<span class="arg-type">`{ orderKey: bigint, uniqueKey?: string }`</span><br/><span class="arg-description">The cursor of the current block.</span>
 - **`finality`**<span class="arg-type">`"finalized" | "accepted" | "pending"`</span><br/><span class="arg-description">The finality of the block.</span>
@@ -93,7 +93,7 @@ The `factory` function adds data filters at runtime. Use it to track Starknet fa
 
 **Arguments**
 
-- **`block`**<span class="arg-type">`TBlock`</span><br/><span class="arg-description">The block received from the DNA stream. See the [Starknet data reference](/docs/networks/starknet/data).</span>
+- **`block`**<span class="arg-type">`TBlock`</span><br/><span class="arg-description">The block received from the DNA stream. See the [Starknet data reference](/docs/starknet/data).</span>
 - **`context`**<span class="arg-type">`object`</span><br/><span class="arg-description">The context shared between the indexer and the plugins.</span>
 
 The following example shows a minimal indexer that streams `PairCreated` events from a Starknet factory to detect new pools, and then streams the pool's events.

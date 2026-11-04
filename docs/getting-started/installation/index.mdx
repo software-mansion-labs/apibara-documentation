@@ -157,7 +157,7 @@ The indexer uses `StarknetStream` to define its filter and block types:
 
 - `streamUrl` selects the DNA stream.
 - `startingBlock` sets the first block to index.
-- `filter.events` selects events from the staking contract. See the [Starknet filter reference](/docs/networks/starknet/filter).
+- `filter.events` selects events from the staking contract. See the [Starknet filter reference](/docs/starknet/filter).
 - `transform` processes each block's events, and `useLogger` returns the indexer's logger.
 
 See the [indexer reference](/docs/getting-started/indexers) for more options.
@@ -409,4 +409,4 @@ in a database, and restarting it starts indexing from its configured starting bl
 You can refer to our storage section to learn more about writing data to a database
 and persisting the indexer's state across restarts.
 
-- [Drizzle with PostgreSQL](/docs/storage/drizzle-pg)
+- [Drizzle with PostgreSQL](/docs/drizzle-pg)

@@ -43,23 +43,23 @@
     },
     {
       "name": "Storage",
-      "path": "/storage",
+      "path": "/drizzle-pg",
       "items": [
         {
           "name": "Drizzle",
           "type": "group",
-          "path": "/drizzle-pg"
+          "path": "/"
         }
       ]
     },
     {
       "name": "Networks",
-      "path": "/networks",
+      "path": "/starknet",
       "items": [
         {
           "name": "Starknet",
           "type": "group",
-          "path": "/starknet"
+          "path": "/"
         }
       ]
     },
