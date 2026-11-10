@@ -32,8 +32,7 @@ export type FieldElement = `0x${string}`;
 
 ### Root
 
-The root filter object contains a collection of filters. Import `Filter` and
-`getSelector` from `@apibara/starknet` when using the examples below.
+The root filter object contains a collection of filters.
 Notice that providing an empty filter object is an error.
 
 ```ts
@@ -103,6 +102,8 @@ export type EventFilter = {
 - All events from a specific smart contract.
 
 ```ts
+import type { Filter } from "@apibara/starknet";
+
 const filter: Filter = {
   events: [{ address: MY_CONTRACT }],
 };
@@ -111,6 +112,8 @@ const filter: Filter = {
 - Multiple events from the same smart contract.
 
 ```ts
+import { getSelector, type Filter } from "@apibara/starknet";
+
 const filter: Filter = {
   events: [
     {
@@ -128,6 +131,8 @@ const filter: Filter = {
 - Multiple events from different smart contracts.
 
 ```ts
+import { getSelector, type Filter } from "@apibara/starknet";
+
 const filter: Filter = {
   events: [
     {
@@ -150,6 +155,8 @@ const filter: Filter = {
 - All `Transfer` events, from any contract.
 
 ```ts
+import { getSelector, type Filter } from "@apibara/starknet";
+
 const filter: Filter = {
   events: [
     {
@@ -162,6 +169,8 @@ const filter: Filter = {
 - All "new type" `Transfer` events with indexed sender and destination addresses.
 
 ```ts
+import { getSelector, type Filter } from "@apibara/starknet";
+
 const filter: Filter = {
   events: [
     {
@@ -268,16 +277,23 @@ export type TransactionFilter = {
   `transactionStatus` to `all`; omitting it selects only succeeded transactions.
 
 ```ts
+import type { Filter } from "@apibara/starknet";
+
 const filter: Filter = { transactions: [{ transactionStatus: "all" }] };
 ```
 
 - Request all transactions of a specific type, e.g. deploy account. In this case we specify the `deployAccountV3` variant.
+
+{/* TODO(software-mansion/starkstream-infra#192):
+Remove after transactionType is preserved during filter serialization in a released SDK. */}
 
 **SDK limitation:** `@apibara/starknet` 2.1.4 drops `transactionType` when
 serializing the request, so this filter currently returns all transaction types.
 Check `transaction.transaction._tag` in your transform instead.
 
 ```ts
+import type { Filter } from "@apibara/starknet";
+
 const filter: Filter = {
   transactions: [
     {

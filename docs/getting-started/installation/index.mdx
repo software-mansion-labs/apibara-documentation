@@ -384,9 +384,35 @@ You can then run the indexer in development mode using the `sepolia` preset.
 
 Replace the Sepolia contract address before running this command:
 
+{/* TODO(software-mansion/starkstream-infra#194):
+Remove this TODO after the logger prefix fix is released and the preset output sample is refreshed. */}
+
+:::cli-command
+
 ```bash [Terminal]
 pnpm run dev --indexers=strk-staking --preset=sepolia
 ```
+
+```
+> my-indexer@1.0.0 dev
+> apibara dev --indexers=strk-staking --preset=sepolia
+
+✔ Output directory .apibara/build cleaned
+✔ Types written to .apibara/types
+✔ Indexers built in 3858 ms
+✔ Restarting indexers
+strk-staking | log Block number 100092
+strk-staking | log Event 233 tx=0x012f8356ef02c36ed1ffddd5252c4f03707166cabcccb49046acf4ab565051c7
+strk-staking | log Event 234 tx=0x012f8356ef02c36ed1ffddd5252c4f03707166cabcccb49046acf4ab565051c7
+strk-staking | log Event 235 tx=0x012f8356ef02c36ed1ffddd5252c4f03707166cabcccb49046acf4ab565051c7
+strk-staking | log Event 236 tx=0x012f8356ef02c36ed1ffddd5252c4f03707166cabcccb49046acf4ab565051c7
+strk-staking | log Block number 100119
+strk-staking | log Event 122 tx=0x01078c3bb0f339eeaf303bc5c47ea03b781841f7b4628f79bb9886ad4c170be7
+strk-staking | log Event 123 tx=0x01078c3bb0f339eeaf303bc5c47ea03b781841f7b4628f79bb9886ad4c170be7
+...
+```
+
+:::
 
 ## Storing data & persisting state across restarts
 

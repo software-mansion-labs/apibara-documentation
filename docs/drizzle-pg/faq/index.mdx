@@ -8,6 +8,9 @@ updatedAt: 2026-11-05
 
 ## General
 
+{/* TODO(software-mansion/starkstream-infra#193):
+Remove this workaround section after the Drizzle ESM fix is released. */}
+
 ### ReferenceError: require is not defined in tests
 
 The ESM build of `@apibara/plugin-drizzle` calls `require()` internally, so

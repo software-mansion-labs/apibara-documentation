@@ -70,6 +70,9 @@ On the first run, VCR records the requested block range from the stream, so set
 `DNA_TOKEN` for that run. Subsequent runs replay the cassette locally. Recording
 is refused in CI, so commit the generated `cassettes` and snapshots with your tests.
 
+{/* TODO(software-mansion/starkstream-infra#193):
+Remove this workaround reference after the Drizzle ESM fix is released. */}
+
 If the test fails with `require is not defined`, apply the
 [workaround in the FAQ](/docs/drizzle-pg/faq#referenceerror-require-is-not-defined-in-tests).
 
